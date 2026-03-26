@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 def save_student_record(hours, sessions, completed, score):
     record = {
@@ -8,6 +9,8 @@ def save_student_record(hours, sessions, completed, score):
         "predicted_score": score
     }
 
-    with open("storage/students.json", "a") as f:
+    output_file = Path(__file__).resolve().parent / "students.json"
+
+    with output_file.open("a") as f:
         json.dump(record, f)
         f.write("\n")

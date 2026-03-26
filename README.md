@@ -9,11 +9,15 @@ The logic on for this calculator is for it to be able to do the following :
 1. Give out correct and accurate results
 2. Add, Subtract, Divide and Multiply
 3. Be able to clear out(erase when requested or when an erase button is clicked)
-4. Have a stylist colour vibe going on 
+4. Have a stylist colour vibe going on
 
-Authors / Developers
+# Promote for running the web
 
-Lebogang Nare 
-Ntsako Ngobeni
-Mosima 
-Letsoenyo Bongane 
+./run_student_analysis_web.sh
+
+# Authors / Developers
+
+1. Lebogang Nare 
+2. Ntsako Ngobeni
+3. Mosima 
+4. Letsoenyo Bongane 

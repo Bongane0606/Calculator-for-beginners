@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Analysis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="intro-panel">
+      <p class="eyebrow">Student Analysis</p>
+      <h1>Sign in, then open the student analysis dashboard.</h1>
+      <p class="intro-copy">
+        After login, users can open the Student Analysis dashboard inside the same phone-style interface.
+      </p>
+    </section>
+
+    <section class="phone-frame" aria-label="Phone style student analysis app">
+      <div class="phone-topbar">
+        <span>9:41</span>
+        <div class="phone-camera"></div>
+        <span>Study Mode</span>
+      </div>
+
+      <div class="phone-screen">
+        <header class="app-header">
+          <p class="app-kicker">Study Focus</p>
+          <h2>Student Score Analyzer</h2>
+          <p class="app-subtitle">Create an account or log in to continue.</p>
+        </header>
+
+        <section id="auth-panel" class="glass-card">
+          <div class="tab-row" role="tablist" aria-label="Authentication options">
+            <button id="login-tab" class="tab-btn active" type="button" data-mode="login">Log In</button>
+            <button id="register-tab" class="tab-btn" type="button" data-mode="register">Create Account</button>
+          </div>
+
+          <form id="auth-form" class="stack-form">
+            <label>
+              <span>Email address</span>
+              <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+
+            <label>
+              <span>Password</span>
+              <input type="password" name="password" placeholder="Minimum 6 characters" required>
+            </label>
+
+            <button id="auth-submit" type="submit" class="submit-btn">Log In</button>
+          </form>
+        </section>
+
+        <section id="app-panel" class="hidden">
+          <section class="glass-card user-card">
+            <div>
+              <p class="result-label">Signed in as</p>
+              <p id="user-email" class="user-email">-</p>
+            </div>
+            <button id="logout-btn" class="secondary-btn" type="button">Log Out</button>
+          </section>
+
+          <section id="home-view" class="view-stack">
+            <section class="glass-card choose-card">
+              <p class="result-label">Open your page</p>
+              <h3 class="choose-title">Continue to Student Analysis</h3>
+              <div class="choice-grid">
+                <button id="open-analysis" class="choice-btn" type="button">
+                  <span class="choice-tag">Dashboard</span>
+                  <strong>Student Analysis</strong>
+                  <span>Check study performance, completion rate, and feedback.</span>
+                </button>
+              </div>
+            </section>
+          </section>
+
+          <section id="analysis-view" class="view-stack hidden">
+            <section class="glass-card section-head">
+              <div>
+                <p class="result-label">Tool</p>
+                <h3 class="section-title">Student Analysis</h3>
+              </div>
+              <button id="back-from-analysis" class="secondary-btn" type="button">Back</button>
+            </section>
+
+            <form id="analysis-form" class="glass-card stack-form">
+              <label>
+                <span>Hours studied</span>
+                <input type="number" name="hours" min="0" step="0.5" placeholder="e.g. 4.5" required>
+              </label>
+
+              <label>
+                <span>Study sessions</span>
+                <input type="number" name="sessions" min="0" step="1" placeholder="e.g. 3" required>
+              </label>
+
+              <label>
+                <span>Planned pages or chapters</span>
+                <input type="number" name="planned" min="0" step="1" placeholder="e.g. 12" required>
+              </label>
+
+              <label>
+                <span>Completed pages or chapters</span>
+                <input type="number" name="completed" min="0" step="1" placeholder="e.g. 9" required>
+              </label>
+
+              <label>
+                <span>Difficulty level</span>
+                <select name="difficulty" required>
+                  <option value="1">1 - Struggled</option>
+                  <option value="2" selected>2 - Moderate</option>
+                  <option value="3">3 - Mastered</option>
+                </select>
+              </label>
+
+              <button type="submit" class="submit-btn">Analyze Study Progress</button>
+            </form>
+
+            <section id="result-card" class="glass-card result-card hidden" aria-live="polite">
+              <div class="result-score-wrap">
+                <p class="result-label">Predicted score</p>
+                <p id="score-value" class="result-score">0%</p>
+              </div>
+
+              <div class="result-metrics">
+                <div>
+                  <p class="metric-label">Completion rate</p>
+                  <p id="completion-value" class="metric-value">0%</p>
+                </div>
+                <div>
+                  <p class="metric-label">Feedback</p>
+                  <p id="feedback-value" class="metric-value metric-copy">-</p>
+                </div>
+              </div>
+
+              <p id="warning-text" class="warning-text hidden"></p>
+            </section>
+          </section>
+        </section>
+
+        <p id="error-text" class="error-text hidden"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
