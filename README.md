@@ -16,7 +16,7 @@ Run the application locally:
 ./run_student_analysis_web.sh
 
 Access the Application:
-[Open Web App](http://127.0.0.1:8030/)
+[Open Web App](http://localhost:8030/)
 Authors / Developers
 
     Lebogang Nare
