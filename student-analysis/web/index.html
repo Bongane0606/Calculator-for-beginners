@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="page-shell">
-    <section class="intro-panel">
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">🌙</button>
+  <main id="page-shell" class="page-shell">
+    <section id="intro-panel" class="intro-panel">
       <p class="eyebrow">Student Analysis</p>
       <h1>Sign in, then open the student analysis dashboard.</h1>
       <p class="intro-copy">
@@ -16,14 +17,8 @@
       </p>
     </section>
 
-    <section class="phone-frame" aria-label="Phone style student analysis app">
-      <div class="phone-topbar">
-        <span>9:41</span>
-        <div class="phone-camera"></div>
-        <span>Study Mode</span>
-      </div>
-
-      <div class="phone-screen">
+    <section class="app-frame" aria-label="Student analysis app">
+      <div class="app-screen">
         <header class="app-header">
           <p class="app-kicker">Study Focus</p>
           <h2>Student Score Analyzer</h2>
@@ -69,6 +64,11 @@
                   <span class="choice-tag">Dashboard</span>
                   <strong>Student Analysis</strong>
                   <span>Check study performance, completion rate, and feedback.</span>
+                </button>
+                <button id="open-calculator" class="choice-btn" type="button">
+                  <span class="choice-tag">Tool</span>
+                  <strong>Calculator</strong>
+                  <span>Perform basic mathematical operations quickly.</span>
                 </button>
               </div>
             </section>
@@ -134,6 +134,43 @@
               </div>
 
               <p id="warning-text" class="warning-text hidden"></p>
+            </section>
+          </section>
+
+          <section id="calculator-view" class="view-stack hidden">
+            <section class="glass-card section-head">
+              <div>
+                <p class="result-label">Tool</p>
+                <h3 class="section-title">Calculator</h3>
+              </div>
+              <button id="back-from-calculator" class="secondary-btn" type="button">Back</button>
+            </section>
+
+            <section class="glass-card calculator-card">
+              <div class="calc-display" id="calc-display">0</div>
+              <div class="calc-grid">
+                <button class="calc-btn" data-val="7">7</button>
+                <button class="calc-btn" data-val="8">8</button>
+                <button class="calc-btn" data-val="9">9</button>
+                <button class="calc-btn calc-op" data-val="/">/</button>
+
+                <button class="calc-btn" data-val="4">4</button>
+                <button class="calc-btn" data-val="5">5</button>
+                <button class="calc-btn" data-val="6">6</button>
+                <button class="calc-btn calc-op" data-val="*">*</button>
+
+                <button class="calc-btn" data-val="1">1</button>
+                <button class="calc-btn" data-val="2">2</button>
+                <button class="calc-btn" data-val="3">3</button>
+                <button class="calc-btn calc-op" data-val="-">-</button>
+
+                <button class="calc-btn" data-val="0">0</button>
+                <button class="calc-btn" data-val=".">.</button>
+                <button class="calc-btn calc-eq" data-val="=">=</button>
+                <button class="calc-btn calc-op" data-val="+">+</button>
+
+                <button class="calc-btn calc-clear" data-val="C" style="grid-column: span 4;">C</button>
+              </div>
             </section>
           </section>
         </section>

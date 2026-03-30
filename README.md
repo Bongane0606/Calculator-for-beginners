@@ -13,7 +13,13 @@ The logic on for this calculator is for it to be able to do the following :
 
 # Promote for running the web
 
+Run the application locally:
+```bash
 ./run_student_analysis_web.sh
+```
+
+**Access the Application:**  
+<a href="http://127.0.0.1:8030/" target="_blank">Open Web App</a>
 
 # Authors / Developers
 
