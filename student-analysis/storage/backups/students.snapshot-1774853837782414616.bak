@@ -8,3 +8,6 @@
 {"hours": 5.0, "sessions": 1, "completed_pages": 3, "predicted_score": 53.0}
 {"hours": 5.0, "sessions": 3, "completed_pages": 8, "predicted_score": 69.0}
 {"hours": 6.0, "sessions": 4, "completed_pages": 8, "predicted_score": 74.0}
+{"hours": 5.0, "sessions": 1, "completed_pages": 5, "predicted_score": 53.71}
+{"hours": 5.0, "sessions": 1, "completed_pages": 5, "predicted_score": 63.71}
+{"hours": 4.0, "sessions": 2, "completed_pages": 8, "predicted_score": 64.0}
