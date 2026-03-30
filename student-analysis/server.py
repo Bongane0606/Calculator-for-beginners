@@ -21,6 +21,7 @@ DATA_FILE = BASE_DIR / "storage" / "students.json"
 USERS_FILE = BASE_DIR / "storage" / "users.json"
 BACKUP_DIR = BASE_DIR / "storage" / "backups"
 DEFAULT_PORT = 8030
+DEFAULT_HOST = "127.0.0.1"
 SESSION_COOKIE = "student_analysis_session"
 SESSION_STORE: dict[str, str] = {}
 MAX_BACKUPS = 5
@@ -423,21 +424,23 @@ class StudentAnalysisHandler(SimpleHTTPRequestHandler):
         super().log_message(format, *args)
 
 
-def open_browser(port: int) -> None:
-    url = f"http://127.0.0.1:{port}/"
+def open_browser(port: int, host: str) -> None:
+    display_host = "127.0.0.1" if host in {"0.0.0.0", ""} else host
+    url = f"http://{display_host}:{port}/"
     threading.Timer(1.0, lambda: webbrowser.open(url)).start()
 
 
-def run(port: int = DEFAULT_PORT) -> None:
+def run(port: int = DEFAULT_PORT, host: str = DEFAULT_HOST) -> None:
     ensure_storage_file(USERS_FILE)
     ensure_storage_file(DATA_FILE)
     create_backup(USERS_FILE)
     create_backup(DATA_FILE)
     handler = partial(StudentAnalysisHandler, directory=str(WEB_DIR))
-    server = ThreadingHTTPServer(("127.0.0.1", port), handler)
-    print(f"Student Analysis web app running at http://127.0.0.1:{port}/")
+    server = ThreadingHTTPServer((host, port), handler)
+    display_host = "127.0.0.1" if host in {"0.0.0.0", ""} else host
+    print(f"Student Analysis web app running at http://{display_host}:{port}/ (bound to {host})")
     print("Press Ctrl+C to stop the server")
-    open_browser(port)
+    open_browser(port, host)
 
     try:
         server.serve_forever()
@@ -449,4 +452,5 @@ def run(port: int = DEFAULT_PORT) -> None:
 
 if __name__ == "__main__":
     selected_port = int(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PORT
-    run(selected_port)
+    selected_host = sys.argv[2] if len(sys.argv) > 2 else DEFAULT_HOST
+    run(selected_port, selected_host)

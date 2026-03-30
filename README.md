@@ -13,10 +13,29 @@ Promote for running the web
 
 Run the application locally:
 
-./run_student_analysis_web.sh
+To start the server binding only to your machine (default):
 
-Access the Application:
+```bash
+./run_student_analysis_web.sh
+```
+
+To make the app reachable from other devices on the same network (phone, other
+desktop), bind the server to all interfaces and use your machine IP:
+
+```bash
+# bind to all interfaces so other devices can connect
+./run_student_analysis_web.sh 8030 0.0.0.0
+
+# find your machine IP (example on Linux)
+hostname -I
+# then open on the other device: http://<YOUR_MACHINE_IP>:8030/
+```
+
+Access the Application (clickable locally):
 [Open Web App](http://localhost:8030/)
+
+If you need public access over the internet, use a tunneling service such as
+`ngrok` or `localtunnel` and expose port `8030`.
 Authors / Developers
 
     Lebogang Nare
